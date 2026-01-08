@@ -3,38 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VolyFlow - Options Intelligence</title>
+    <title>VolyFlow - Options Intelligence Platform</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #0f172a; color: #e2e8f0; text-align: center; }
-        header { padding: 60px 20px; background: linear-gradient(135deg, #1e293b, #0f172a); }
-        h1 { font-size: 4rem; margin: 0; color: #60a5fa; }
-        p { font-size: 1.5rem; max-width: 800px; margin: 30px auto; line-height: 1.6; }
-        .tagline { font-size: 2rem; color: #93c5fd; margin: 20px 0; }
-        .email-signup { margin: 50px auto; max-width: 500px; }
-        input[type="email"] { padding: 15px; width: 70%; border: none; border-radius: 8px 0 0 8px; font-size: 1.1rem; }
-        button { padding: 15px 30px; background: #60a5fa; color: white; border: none; border-radius: 0 8px 8px 0; font-size: 1.1rem; cursor: pointer; }
-        button:hover { background: #3b82f6; }
-        footer { padding: 40px; font-size: 0.9rem; color: #64748b; }
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #e2e8f0;
+            --text-secondary: #64748b;
+            --primary: #3b82f6;
+            --positive: #10b981;
+            --flow: #06b6d4;
+        }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: var(--bg); color: var(--text); text-align: center; }
+        header { padding: 100px 20px 80px; background: linear-gradient(135deg, #1e293b, var(--bg)); }
+        h1 { font-size: 4.8rem; margin: 0; color: var(--primary); letter-spacing: 2px; }
+        .tagline { font-size: 2.3rem; color: var(--flow); margin: 20px 0; }
+        p { font-size: 1.4rem; max-width: 800px; margin: 30px auto; line-height: 1.7; }
+        .features { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin: 60px auto; max-width: 1100px; padding: 0 20px; }
+        .feature-card { background: var(--card-bg); padding: 35px; border-radius: 16px; width: 300px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        .feature-card h3 { color: var(--positive); margin-top: 0; }
+        .email-signup { margin: 80px auto; max-width: 600px; }
+        .email-signup form { display: flex; max-width: 500px; margin: 0 auto; box-shadow: 0 8px 32px rgba(0,0,0,0.4); border-radius: 16px; overflow: hidden; }
+        input[type="email"] { flex: 1; padding: 20px; border: none; font-size: 1.2rem; background: #1e293b; color: var(--text); }
+        input[type="email"]::placeholder { color: var(--text-secondary); }
+        button { padding: 0 40px; background: var(--primary); color: white; border: none; font-size: 1.2rem; cursor: pointer; transition: background 0.3s; }
+        button:hover { background: #2563eb; }
+        footer { padding: 60px 20px; color: var(--text-secondary); font-size: 1rem; }
+        a { color: var(--flow); text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <h1>VolyFlow</h1>
         <div class="tagline">See the Flow. Master the Levels.</div>
-        <p>Simple, powerful gamma exposure heatmaps and options flow insights for traders – from beginners to pros.</p>
-        <p>Launching February 2026: Beginner-friendly SPX gamma heatmaps with clear support/resistance levels.</p>
-        
-        <div class="email-signup">
-            <form action="https://formspree.io/f/your-form-id" method="POST"> <!-- We'll set up free Formspree next -->
-                <input type="email" name="email" placeholder="Enter your email for early access" required>
-                <button type="submit">Get Notified</button>
-            </form>
-        </div>
+        <p>Simple, powerful gamma exposure heatmaps and options flow insights.<br>Built for traders – from beginners to pros.</p>
+        <p>Launching February 2026: Free SPX/SPY gamma heatmap with clear support & resistance zones.</p>
     </header>
-    
+
+    <div class="features">
+        <div class="feature-card">
+            <h3>🔥 Gamma Heatmaps</h3>
+            <p>Visualize dealer gamma exposure instantly. Green zones = strong support, Red = potential volatility breaks.</p>
+        </div>
+        <div class="feature-card">
+            <h3>📊 Options Flow</h3>
+            <p>Coming soon: Track unusual trades and real-time hedging pressure.</p>
+        </div>
+        <div class="feature-card">
+            <h3>👶 Beginner-Friendly</h3>
+            <p>Plain-English tooltips and explanations – no deep Greeks knowledge required.</p>
+        </div>
+    </div>
+
+    <div class="email-signup">
+        <form action="https://formspree.io/f/xojvgyqb" method="POST">
+            <input type="email" name="email" placeholder="Enter your email for early access & updates" required>
+            <button type="submit">Join Waitlist</button>
+        </form>
+        <p>No spam. Launch updates only.</p>
+    </div>
+
     <footer>
-        <p>© 2026 VolyFlow. Not financial advice. For educational purposes only.</p>
-        <p>Follow us on X: <a href="https://x.com/VolyFlow" style="color:#60a5fa;">@VolyFlow</a></p>
+        <p>© 2026 VolyFlow • Educational tool only • Not financial advice</p>
+        <p>Follow on X: <a href="https://x.com/VolyFlow" target="_blank">@VolyFlow</a></p>
     </footer>
 </body>
 </html>
