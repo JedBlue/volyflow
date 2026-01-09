@@ -4,77 +4,372 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VolyFlow - Options Intelligence Platform</title>
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/JedBlue/volyflow@main/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <!-- Gilroy Font - Modern fintech favorite -->
+    <link href="https://fonts.googleapis.com/css2?family=Gilroy:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #0f172a;
-            --card-bg: #1e293b;
+            --nav-bg: #0f172a;
             --text: #e2e8f0;
             --text-secondary: #64748b;
             --primary: #3b82f6;
+            --hover: #60a5fa;
             --positive: #10b981;
             --flow: #06b6d4;
         }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: var(--bg); color: var(--text); text-align: center; }
-        header { padding: 80px 20px 60px; background: linear-gradient(135deg, #1e293b, var(--bg)); }
-        .logo-img { max-width: 320px; width: 85%; margin-bottom: 30px; }
-        h1 { font-size: 4.8rem; margin: 20px 0 0; color: var(--primary); letter-spacing: 2px; }
-        .tagline { font-size: 2.3rem; color: var(--flow); margin: 20px 0; }
-        p { font-size: 1.4rem; max-width: 800px; margin: 30px auto; line-height: 1.7; }
-        .features { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin: 60px auto; max-width: 1100px; padding: 0 20px; }
-        .feature-card { background: var(--card-bg); padding: 35px; border-radius: 16px; width: 300px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
-        .feature-card h3 { color: var(--positive); margin-top: 0; }
-        .email-signup { margin: 80px auto; max-width: 600px; }
-        .email-signup form { display: flex; max-width: 500px; margin: 0 auto; box-shadow: 0 8px 32px rgba(0,0,0,0.4); border-radius: 16px; overflow: hidden; }
-        input[type="email"] { flex: 1; padding: 20px; border: none; font-size: 1.2rem; background: #1e293b; color: var(--text); }
-        input[type="email"]::placeholder { color: var(--text-secondary); }
-        button { padding: 0 40px; background: var(--primary); color: white; border: none; font-size: 1.2rem; cursor: pointer; transition: background 0.3s; }
-        button:hover { background: #2563eb; }
-        footer { padding: 60px 20px; color: var(--text-secondary); font-size: 1rem; }
-        a { color: var(--flow); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        @media (max-width: 768px) {
-            h1 { font-size: 3.5rem; }
-            .tagline { font-size: 1.8rem; }
-            .logo-img { max-width: 250px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Gilroy', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Sticky Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            border-bottom: 1px solid rgba(100, 116, 139, 0.2);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: background 0.3s;
+        }
+        nav.scrolled {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+        .nav-item {
+            position: relative;
+            cursor: pointer;
+        }
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .nav-link:hover,
+        .nav-item.active .nav-link {
+            color: var(--hover);
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--nav-bg);
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            border-radius: 8px;
+            min-width: 180px;
+            padding: 0.5rem 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.2s ease;
+        }
+        .nav-item:hover .dropdown {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .dropdown a {
+            display: block;
+            padding: 0.75rem 1.25rem;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .dropdown a:hover {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--hover);
+        }
+
+        /* Search & CTA */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .search-input {
+            padding: 0.6rem 1rem;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            color: var(--text);
+            font-size: 0.95rem;
+            width: 220px;
+        }
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+        .cta-button {
+            padding: 0.6rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .cta-button:hover {
+            background: #2563eb;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: var(--text);
+            transition: all 0.3s;
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            padding: 1rem;
+            border-top: 1px solid rgba(100, 116, 139, 0.2);
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+        .mobile-dropdown {
+            margin: 0.5rem 0;
+        }
+        .mobile-dropdown > a {
+            display: block;
+            padding: 0.8rem 1rem;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .mobile-dropdown .sub-item {
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile View */
+        @media (max-width: 992px) {
+            .nav-menu, .nav-right .search-input, .nav-right .cta-button {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .mobile-menu {
+                display: none;
+            }
+            .mobile-menu.active {
+                display: block;
+            }
+            .nav-right {
+                gap: 1rem;
+            }
+            .logo-img {
+                height: 36px;
+            }
+        }
+
+        /* Hero placeholder (will be updated next chunk) */
+        main {
+            padding-top: 100px; /* space for sticky nav */
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="https://cdn.jsdelivr.net/gh/JedBlue/volyflow@main/assets/logo.png" alt="VolyFlow Logo" class="logo-img">
-        <h1>VolyFlow</h1>
-        <div class="tagline">See the Flow. Master the Levels.</div>
-        <p>Simple, powerful gamma exposure heatmaps and options flow insights.<br>Built for traders – from beginners to pros.</p>
-        <p>Launching February 2026: Free SPX/SPY gamma heatmap with clear support & resistance zones.</p>
-    </header>
 
-    <div class="features">
-        <div class="feature-card">
-            <h3>🔥 Gamma Heatmaps</h3>
-            <p>Visualize dealer gamma exposure instantly. Green zones = strong support, Red = potential volatility breaks.</p>
-        </div>
-        <div class="feature-card">
-            <h3>📊 Options Flow</h3>
-            <p>Coming soon: Track unusual trades and real-time hedging pressure.</p>
-        </div>
-        <div class="feature-card">
-            <h3>👶 Beginner-Friendly</h3>
-            <p>Plain-English tooltips and explanations – no deep Greeks knowledge required.</p>
-        </div>
-    </div>
+    <!-- Sticky Navigation -->
+    <nav id="main-nav">
+        <div class="nav-container">
+            <div class="logo-container">
+                <a href="/">
+                    <img src="/assets/logo-square.png" alt="VolyFlow" class="logo-img">
+                </a>
+            </div>
 
-    <div class="email-signup">
-        <form action="https://formspree.io/f/xojvgyqb" method="POST">
-            <input type="email" name="email" placeholder="Enter your email for early access & updates" required>
-            <button type="submit">Join Waitlist</button>
-        </form>
-        <p>No spam. Launch updates only.</p>
-    </div>
+            <div class="nav-menu">
+                <!-- Tools -->
+                <div class="nav-item">
+                    <a class="nav-link">Tools</a>
+                    <div class="dropdown">
+                        <a href="#">Gamma Heatmaps</a>
+                        <a href="#">Options Flow</a>
+                        <a href="#">Future Scanners</a>
+                    </div>
+                </div>
 
-    <footer>
-        <p>© 2026 VolyFlow • Educational tool only • Not financial advice</p>
-        <p>Follow on X: <a href="https://x.com/VolyFlow" target="_blank">@VolyFlow</a></p>
-    </footer>
+                <!-- Resources -->
+                <div class="nav-item">
+                    <a class="nav-link">Resources</a>
+                    <div class="dropdown">
+                        <a href="#">Journal</a>
+                        <a href="#">Stock Screener</a>
+                    </div>
+                </div>
+
+                <!-- Calendar -->
+                <div class="nav-item">
+                    <a class="nav-link">Calendar</a>
+                    <div class="dropdown">
+                        <a href="#">Earnings Calendar</a>
+                        <a href="#">Economic Calendar</a>
+                        <a href="#">Trump Impact</a>
+                    </div>
+                </div>
+
+                <!-- Social -->
+                <div class="nav-item">
+                    <a class="nav-link">Social</a>
+                    <div class="dropdown">
+                        <a href="https://x.com/VolyFlow" target="_blank">X (Twitter)</a>
+                        <a href="#">Contact Us</a>
+                        <a href="#">Discord</a>
+                    </div>
+                </div>
+
+                <!-- Pricing -->
+                <div class="nav-item">
+                    <a class="nav-link">Pricing</a>
+                    <div class="dropdown">
+                        <a href="#">Free</a>
+                        <a href="#">Basic</a>
+                        <a href="#">Professional</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-right">
+                <input type="text" class="search-input" placeholder="Ticker search – coming soon">
+                <button class="cta-button">Join Waitlist</button>
+                <!-- Hamburger -->
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-dropdown">
+                <a href="#" class="mobile-dropdown-toggle">Tools</a>
+                <div>
+                    <a href="#" class="sub-item">Gamma Heatmaps</a>
+                    <a href="#" class="sub-item">Options Flow</a>
+                    <a href="#" class="sub-item">Future Scanners</a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <a href="#" class="mobile-dropdown-toggle">Resources</a>
+                <div>
+                    <a href="#" class="sub-item">Journal</a>
+                    <a href="#" class="sub-item">Stock Screener</a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <a href="#" class="mobile-dropdown-toggle">Calendar</a>
+                <div>
+                    <a href="#" class="sub-item">Earnings Calendar</a>
+                    <a href="#" class="sub-item">Economic Calendar</a>
+                    <a href="#" class="sub-item">Trump Impact</a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <a href="#" class="mobile-dropdown-toggle">Social</a>
+                <div>
+                    <a href="https://x.com/VolyFlow" target="_blank" class="sub-item">X (Twitter)</a>
+                    <a href="#" class="sub-item">Contact Us</a>
+                    <a href="#" class="sub-item">Discord</a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <a href="#" class="mobile-dropdown-toggle">Pricing</a>
+                <div>
+                    <a href="#" class="sub-item">Free</a>
+                    <a href="#" class="sub-item">Basic</a>
+                    <a href="#" class="sub-item">Professional</a>
+                </div>
+            </div>
+            <input type="text" class="search-input" placeholder="Ticker search – coming soon" style="margin: 1rem 0; width: 100%;">
+            <button class="cta-button" style="width: 100%;">Join Waitlist</button>
+        </div>
+    </nav>
+
+    <!-- Temporary main content placeholder (will be updated in next chunks) -->
+    <main style="padding-top: 120px; text-align: center;">
+        <h1 style="margin: 2rem 0;">VolyFlow</h1>
+        <p>Launching February 2026. Sign-up now for free early access.</p>
+        <!-- Your current content can stay here for now -->
+    </main>
+
+    <script>
+        // Sticky nav on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
