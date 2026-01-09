@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VolyFlow - Options Intelligence Platform</title>
-    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/JedBlue/volyflow@main/assets/favicon.ico" type="image/x-icon">
     <style>
         :root {
             --bg: #0f172a;
@@ -17,7 +17,7 @@
         }
         body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: var(--bg); color: var(--text); text-align: center; }
         header { padding: 80px 20px 60px; background: linear-gradient(135deg, #1e293b, var(--bg)); }
-        .logo-img { max-width: 300px; width: 80%; margin-bottom: 20px; }
+        .logo-img { max-width: 320px; width: 85%; margin-bottom: 30px; }
         h1 { font-size: 4.8rem; margin: 20px 0 0; color: var(--primary); letter-spacing: 2px; }
         .tagline { font-size: 2.3rem; color: var(--flow); margin: 20px 0; }
         p { font-size: 1.4rem; max-width: 800px; margin: 30px auto; line-height: 1.7; }
@@ -33,11 +33,16 @@
         footer { padding: 60px 20px; color: var(--text-secondary); font-size: 1rem; }
         a { color: var(--flow); text-decoration: none; }
         a:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            .tagline { font-size: 1.8rem; }
+            .logo-img { max-width: 250px; }
+        }
     </style>
 </head>
 <body>
     <header>
-        <img src="/assets/logo.png" alt="VolyFlow Logo" class="logo-img">
+        <img src="https://cdn.jsdelivr.net/gh/JedBlue/volyflow@main/assets/logo.png" alt="VolyFlow Logo" class="logo-img">
         <h1>VolyFlow</h1>
         <div class="tagline">See the Flow. Master the Levels.</div>
         <p>Simple, powerful gamma exposure heatmaps and options flow insights.<br>Built for traders – from beginners to pros.</p>
