@@ -32,7 +32,7 @@
             line-height: 1.6;
         }
 
-        /* ── Sticky Navigation ──────────────────────────────────────────────── */
+        /* Sticky Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -59,7 +59,7 @@
         }
 
         .logo-img {
-            height: 65px;           /* ← Increased from 55px */
+            height: 65px;           /* Increased size */
             width: auto;
         }
 
@@ -198,7 +198,7 @@
                 display: flex;
             }
             .logo-img {
-                height: 55px; /* ← Increased from 48px for mobile */
+                height: 55px; /* Increased for mobile */
             }
         }
 
@@ -313,6 +313,74 @@
             .waitlist-form form { flex-direction: column; }
             .waitlist-form button { padding: 1.2rem; width: 100%; border-radius: 0 0 12px 12px; }
         }
+
+        /* ── Teaser Section (placeholder for heatmap) ───────────────────────── */
+        .teaser-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(to bottom, #0f172a, #1e293b);
+        }
+
+        .teaser-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .teaser-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .teaser-text h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .teaser-text p, .teaser-text ul {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .teaser-text ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .teaser-text li {
+            margin-bottom: 0.8rem;
+        }
+
+        .teaser-text strong {
+            color: var(--text);
+        }
+
+        .teaser-image {
+            flex: 1.5;
+            min-width: 400px;
+        }
+
+        .heatmap-preview {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid rgba(100,116,139,0.2);
+        }
+
+        /* Mobile stack for teaser */
+        @media (max-width: 992px) {
+            .teaser-container {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            .teaser-text, .teaser-image {
+                min-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -384,9 +452,9 @@
             </div>
         </div>
 
-        <!-- Mobile Menu (abbreviated – keep all items as in previous version) -->
+        <!-- Mobile Menu (abbreviated – expand if needed) -->
         <div class="mobile-menu" id="mobileMenu">
-            <!-- ... paste the mobile dropdown content from previous chunk if needed ... -->
+            <!-- Add your full mobile dropdown content here from previous versions -->
             <input type="text" class="search-input" placeholder="Ticker search – coming soon" style="margin: 1rem 0; width: 100%;">
             <button class="cta-button" style="width: 100%;">Join Waitlist</button>
         </div>
@@ -410,6 +478,26 @@
                         <input type="email" name="email" placeholder="Enter your email" required>
                         <button type="submit">Join Waitlist</button>
                     </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Heatmap Teaser Section (ready for your uploaded image) -->
+        <section class="teaser-section">
+            <div class="teaser-container">
+                <div class="teaser-text">
+                    <h2>Gamma Exposure Heatmap – Coming February 2026</h2>
+                    <p>See dealer gamma levels at a glance. Simple color coding tells the story:</p>
+                    <ul>
+                        <li><strong>Green</strong>: Positive gamma – support/pinning zones, dampens volatility</li>
+                        <li><strong>Purple/Red</strong>: Negative gamma – momentum/volatility expansion</li>
+                        <li><strong>Yellow</strong>: Key nodes – often gravitational centers for price</li>
+                    </ul>
+                    <p>Beginner-friendly: no deep options knowledge needed. Just follow the colors.</p>
+                </div>
+
+                <div class="teaser-image">
+                    <img src="/assets/gamma-heatmap-teaser.png" alt="Gamma Exposure Heatmap Preview" class="heatmap-preview">
                 </div>
             </div>
         </section>
