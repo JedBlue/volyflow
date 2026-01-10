@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VolyFlow - Options Intelligence Platform</title>
     
-    <!-- Favicon -->
+    <!-- Favicon via CDN -->
     <link rel="icon" href="https://cdn.jsdelivr.net/gh/JedBlue/volyflow@main/assets/favicon.ico" type="image/x-icon">
     
     <!-- Gilroy Font -->
@@ -32,7 +32,7 @@
             line-height: 1.6;
         }
 
-        /* Navigation (unchanged) */
+        /* Sticky Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -59,7 +59,7 @@
         }
 
         .logo-img {
-            height: 65px;
+            height: 65px;           /* Increased size */
             width: auto;
         }
 
@@ -301,7 +301,7 @@
             background: #2563eb;
         }
 
-        /* Teaser Section – IMAGE ON LEFT / TEXT ON RIGHT */
+        /* Teaser Section – IMAGE LEFT / TEXT RIGHT */
         .teaser-section {
             padding: 6rem 2rem;
             background: linear-gradient(to bottom, #0f172a, #1e293b);
@@ -319,7 +319,7 @@
         .teaser-image {
             flex: 1.5;
             min-width: 400px;
-            order: 1; /* Ensures image is first (left) */
+            order: 1; /* Image first (left) */
         }
 
         .teaser-text {
@@ -360,7 +360,65 @@
             border: 1px solid rgba(100,116,139,0.2);
         }
 
-        /* Mobile: stack text on top, image below */
+        /* Features Section */
+        .features-section {
+            padding: 6rem 2rem;
+            background: var(--bg);
+            text-align: center;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-container h2 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .features-container p {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #1e293b;
+            padding: 2.5rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .feature-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .feature-card p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile adjustments */
         @media (max-width: 992px) {
             .teaser-container {
                 flex-direction: column;
@@ -368,11 +426,10 @@
             }
             .teaser-text, .teaser-image {
                 min-width: 100%;
-                order: initial; /* Reset order on mobile */
+                order: initial;
             }
         }
 
-        /* Mobile hero adjustments */
         @media (max-width: 768px) {
             h1 { font-size: 4.2rem; }
             .tagline { font-size: 2.1rem; }
@@ -459,8 +516,9 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Main Content -->
     <main>
+        <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
                 <h1>VolyFlow</h1>
@@ -481,7 +539,7 @@
             </div>
         </section>
 
-        <!-- Heatmap Teaser – IMAGE LEFT / TEXT RIGHT -->
+        <!-- Heatmap Teaser -->
         <section class="teaser-section">
             <div class="teaser-container">
                 <div class="teaser-image">
@@ -497,6 +555,46 @@
                         <li><strong>Yellow</strong>: Key nodes – often gravitational centers for price</li>
                     </ul>
                     <p>Beginner-friendly: no deep options knowledge needed. Just follow the colors.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="features-section">
+            <div class="features-container">
+                <h2>Powerful Tools for Every Trader</h2>
+                <p>From beginners to pros – VolyFlow makes options intelligence simple and actionable.</p>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon">🔥</div>
+                        <h3>Gamma Heatmaps</h3>
+                        <p>Visualize dealer gamma exposure at a glance. Green = support zones, Red = volatility risks.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="icon">📊</div>
+                        <h3>Options Flow</h3>
+                        <p>Track unusual trades and real-time hedging pressure. Spot the big money moves.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="icon">👶</div>
+                        <h3>Beginner-Friendly</h3>
+                        <p>Plain-English explanations and tooltips – no deep Greeks knowledge required.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="icon">📓</div>
+                        <h3>Trading Journal</h3>
+                        <p>Coming soon: Log your trades, track performance, and review gamma impact over time.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="icon">🔍</div>
+                        <h3>Stock Screener</h3>
+                        <p>Coming soon: Filter stocks by gamma exposure, flow activity, and key levels.</p>
+                    </div>
                 </div>
             </div>
         </section>
