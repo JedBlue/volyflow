@@ -32,7 +32,7 @@
             line-height: 1.6;
         }
 
-        /* Navigation (unchanged from last working version) */
+        /* Navigation (unchanged) */
         nav {
             position: fixed;
             top: 0;
@@ -301,7 +301,7 @@
             background: #2563eb;
         }
 
-        /* Teaser Section – IMAGE LEFT / TEXT RIGHT */
+        /* Teaser Section – IMAGE ON LEFT / TEXT ON RIGHT */
         .teaser-section {
             padding: 6rem 2rem;
             background: linear-gradient(to bottom, #0f172a, #1e293b);
@@ -314,12 +314,18 @@
             gap: 4rem;
             align-items: center;
             flex-wrap: wrap;
-            flex-direction: row-reverse; /* ← Swapped: image left, text right on desktop */
+        }
+
+        .teaser-image {
+            flex: 1.5;
+            min-width: 400px;
+            order: 1; /* Ensures image is first (left) */
         }
 
         .teaser-text {
             flex: 1;
             min-width: 300px;
+            order: 2;
         }
 
         .teaser-text h2 {
@@ -347,11 +353,6 @@
             color: var(--text);
         }
 
-        .teaser-image {
-            flex: 1.5;
-            min-width: 400px;
-        }
-
         .heatmap-preview {
             width: 100%;
             border-radius: 12px;
@@ -359,7 +360,7 @@
             border: 1px solid rgba(100,116,139,0.2);
         }
 
-        /* Mobile: stack naturally (text on top, image below) */
+        /* Mobile: stack text on top, image below */
         @media (max-width: 992px) {
             .teaser-container {
                 flex-direction: column;
@@ -367,10 +368,11 @@
             }
             .teaser-text, .teaser-image {
                 min-width: 100%;
+                order: initial; /* Reset order on mobile */
             }
         }
 
-        /* Mobile adjustments for hero */
+        /* Mobile hero adjustments */
         @media (max-width: 768px) {
             h1 { font-size: 4.2rem; }
             .tagline { font-size: 2.1rem; }
@@ -451,7 +453,7 @@
 
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
-            <!-- Add full mobile dropdown content here if needed -->
+            <!-- Full mobile dropdown content can be added here if needed -->
             <input type="text" class="search-input" placeholder="Ticker search – coming soon" style="margin: 1rem 0; width: 100%;">
             <button class="cta-button" style="width: 100%;">Join Waitlist</button>
         </div>
@@ -483,7 +485,7 @@
         <section class="teaser-section">
             <div class="teaser-container">
                 <div class="teaser-image">
-                    <img src="/assets/gamma-heatmap-teaser.png" alt="Gamma Exposure Heatmap Preview" class="heatmap-preview">
+                    <img src="https://cdn.jsdelivr.net/gh/JedBlue/volyflow@main/assets/gamma-heatmap-teaser.png" alt="Gamma Exposure Heatmap Preview" class="heatmap-preview">
                 </div>
 
                 <div class="teaser-text">
