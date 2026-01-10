@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VolyFlow - Options Intelligence Platform</title>
     
-    <!-- Favicon via CDN -->
+    <!-- Favicon -->
     <link rel="icon" href="https://cdn.jsdelivr.net/gh/JedBlue/volyflow@main/assets/favicon.ico" type="image/x-icon">
     
     <!-- Gilroy Font -->
@@ -32,7 +32,7 @@
             line-height: 1.6;
         }
 
-        /* Sticky Navigation */
+        /* Navigation (unchanged from last working version) */
         nav {
             position: fixed;
             top: 0;
@@ -59,7 +59,7 @@
         }
 
         .logo-img {
-            height: 65px;           /* Increased size */
+            height: 65px;
             width: auto;
         }
 
@@ -87,7 +87,6 @@
             color: var(--hover);
         }
 
-        /* Dropdown */
         .dropdown {
             position: absolute;
             top: 100%;
@@ -123,7 +122,6 @@
             color: var(--hover);
         }
 
-        /* Search & CTA */
         .nav-right {
             display: flex;
             align-items: center;
@@ -159,7 +157,6 @@
             background: #2563eb;
         }
 
-        /* Hamburger */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -189,7 +186,6 @@
             display: block;
         }
 
-        /* Mobile adjustments */
         @media (max-width: 992px) {
             .nav-menu, .nav-right .search-input, .nav-right .cta-button {
                 display: none;
@@ -198,11 +194,11 @@
                 display: flex;
             }
             .logo-img {
-                height: 55px; /* Increased for mobile */
+                height: 55px;
             }
         }
 
-        /* ── Hero Section ───────────────────────────────────────────────────── */
+        /* Hero Section */
         .hero {
             min-height: 85vh;
             display: flex;
@@ -212,7 +208,7 @@
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
             position: relative;
             overflow: hidden;
-            padding-top: 80px; /* space for fixed nav */
+            padding-top: 80px;
         }
 
         .hero::before {
@@ -305,16 +301,7 @@
             background: #2563eb;
         }
 
-        /* Mobile adjustments */
-        @media (max-width: 768px) {
-            h1 { font-size: 4.2rem; }
-            .tagline { font-size: 2.1rem; }
-            .hero { min-height: 70vh; padding-top: 100px; }
-            .waitlist-form form { flex-direction: column; }
-            .waitlist-form button { padding: 1.2rem; width: 100%; border-radius: 0 0 12px 12px; }
-        }
-
-        /* ── Teaser Section (placeholder for heatmap) ───────────────────────── */
+        /* Teaser Section – IMAGE LEFT / TEXT RIGHT */
         .teaser-section {
             padding: 6rem 2rem;
             background: linear-gradient(to bottom, #0f172a, #1e293b);
@@ -327,6 +314,7 @@
             gap: 4rem;
             align-items: center;
             flex-wrap: wrap;
+            flex-direction: row-reverse; /* ← Swapped: image left, text right on desktop */
         }
 
         .teaser-text {
@@ -371,7 +359,7 @@
             border: 1px solid rgba(100,116,139,0.2);
         }
 
-        /* Mobile stack for teaser */
+        /* Mobile: stack naturally (text on top, image below) */
         @media (max-width: 992px) {
             .teaser-container {
                 flex-direction: column;
@@ -380,6 +368,15 @@
             .teaser-text, .teaser-image {
                 min-width: 100%;
             }
+        }
+
+        /* Mobile adjustments for hero */
+        @media (max-width: 768px) {
+            h1 { font-size: 4.2rem; }
+            .tagline { font-size: 2.1rem; }
+            .hero { min-height: 70vh; padding-top: 100px; }
+            .waitlist-form form { flex-direction: column; }
+            .waitlist-form button { padding: 1.2rem; width: 100%; border-radius: 0 0 12px 12px; }
         }
     </style>
 </head>
@@ -452,9 +449,9 @@
             </div>
         </div>
 
-        <!-- Mobile Menu (abbreviated – expand if needed) -->
+        <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
-            <!-- Add your full mobile dropdown content here from previous versions -->
+            <!-- Add full mobile dropdown content here if needed -->
             <input type="text" class="search-input" placeholder="Ticker search – coming soon" style="margin: 1rem 0; width: 100%;">
             <button class="cta-button" style="width: 100%;">Join Waitlist</button>
         </div>
@@ -482,9 +479,13 @@
             </div>
         </section>
 
-        <!-- Heatmap Teaser Section (ready for your uploaded image) -->
+        <!-- Heatmap Teaser – IMAGE LEFT / TEXT RIGHT -->
         <section class="teaser-section">
             <div class="teaser-container">
+                <div class="teaser-image">
+                    <img src="/assets/gamma-heatmap-teaser.png" alt="Gamma Exposure Heatmap Preview" class="heatmap-preview">
+                </div>
+
                 <div class="teaser-text">
                     <h2>Gamma Exposure Heatmap – Coming February 2026</h2>
                     <p>See dealer gamma levels at a glance. Simple color coding tells the story:</p>
@@ -495,23 +496,17 @@
                     </ul>
                     <p>Beginner-friendly: no deep options knowledge needed. Just follow the colors.</p>
                 </div>
-
-                <div class="teaser-image">
-                    <img src="/assets/gamma-heatmap-teaser.png" alt="Gamma Exposure Heatmap Preview" class="heatmap-preview">
-                </div>
             </div>
         </section>
     </main>
 
     <!-- JavaScript -->
     <script>
-        // Sticky nav on scroll
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('main-nav');
             nav.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Hamburger menu
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
 
