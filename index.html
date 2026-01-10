@@ -59,7 +59,7 @@
         }
 
         .logo-img {
-            height: 65px;           /* Increased size */
+            height: 65px;
             width: auto;
         }
 
@@ -319,7 +319,7 @@
         .teaser-image {
             flex: 1.5;
             min-width: 400px;
-            order: 1; /* Image first (left) */
+            order: 1;
         }
 
         .teaser-text {
@@ -418,6 +418,118 @@
             color: var(--text-secondary);
         }
 
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(to bottom, #1e293b, #0f172a);
+            text-align: center;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-container h2 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .testimonials-container p {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .testimonial-card .quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 1.2rem;
+            color: var(--text);
+        }
+
+        .testimonial-card .author {
+            font-size: 1.1rem;
+            color: var(--positive);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(100, 116, 139, 0.2);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .footer-column {
+            min-width: 200px;
+        }
+
+        .footer-column h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            color: var(--text);
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: var(--hover);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(100, 116, 139, 0.2);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .disclaimer {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         /* Mobile adjustments */
         @media (max-width: 992px) {
             .teaser-container {
@@ -426,7 +538,10 @@
             }
             .teaser-text, .teaser-image {
                 min-width: 100%;
-                order: initial;
+            }
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
             }
         }
 
@@ -436,126 +551,6 @@
             .hero { min-height: 70vh; padding-top: 100px; }
             .waitlist-form form { flex-direction: column; }
             .waitlist-form button { padding: 1.2rem; width: 100%; border-radius: 0 0 12px 12px; }
-
-            /* Testimonials Section */
-.testimonials-section {
-    padding: 6rem 2rem;
-    background: linear-gradient(to bottom, #1e293b, #0f172a);
-    text-align: center;
-}
-
-.testimonials-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.testimonials-container h2 {
-    font-size: 3.2rem;
-    margin-bottom: 1rem;
-    color: var(--primary);
-}
-
-.testimonials-container p {
-    font-size: 1.4rem;
-    color: var(--text-secondary);
-    margin-bottom: 4rem;
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-}
-
-.testimonial-card {
-    background: #1e293b;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-
-.testimonial-card .quote {
-    font-size: 1.3rem;
-    font-style: italic;
-    margin-bottom: 1.2rem;
-    color: var(--text);
-}
-
-.testimonial-card .author {
-    font-size: 1.1rem;
-    color: var(--positive);
-    font-weight: 600;
-}
-
-/* Footer */
-.footer {
-    background: #0f172a;
-    padding: 4rem 2rem 2rem;
-    border-top: 1px solid rgba(100, 116, 139, 0.2);
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 3rem;
-}
-
-.footer-column {
-    min-width: 200px;
-}
-
-.footer-column h4 {
-    font-size: 1.4rem;
-    margin-bottom: 1.2rem;
-    color: var(--text);
-}
-
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-column li {
-    margin-bottom: 0.8rem;
-}
-
-.footer-column a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.footer-column a:hover {
-    color: var(--hover);
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(100, 116, 139, 0.2);
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-.disclaimer {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Mobile adjustments */
-@media (max-width: 992px) {
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
-}
         }
     </style>
 </head>
@@ -715,83 +710,78 @@
                         <h3>Stock Screener</h3>
                         <p>Coming soon: Filter stocks by gamma exposure, flow activity, and key levels.</p>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                      <div class="feature-card">
-                        <div class="icon">🔦</div>
-                        <h3>Dark Pools</h3>
-                        <p>Coming soon: See where the money is flowing.</p>
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="testimonials-container">
+                <h2>What Traders Are Saying</h2>
+                <p>Early feedback from the community (placeholders – real quotes coming soon)</p>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p class="quote">"Finally, gamma made simple – this is going to change how I trade SPX!"</p>
+                        <p class="author">– Trader X</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="quote">"Cleanest heatmap I've seen. Can't wait for launch."</p>
+                        <p class="author">– Options Enthusiast</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="quote">"Noob-friendly and powerful. Early access is a must."</p>
+                        <p class="author">– Retail Investor</p>
                     </div>
                 </div>
             </div>
         </section>
-<!-- Testimonials Section -->
-<section class="testimonials-section">
-    <div class="testimonials-container">
-        <h2>What Traders Are Saying</h2>
-        <p>Early feedback from the community (placeholders – real quotes coming soon)</p>
-
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <p class="quote">"Finally, gamma made simple – this is going to change how I trade SPX!"</p>
-                <p class="author">– Trader X</p>
-            </div>
-
-            <div class="testimonial-card">
-                <p class="quote">"Cleanest heatmap I've seen. Can't wait for launch."</p>
-                <p class="author">– Options Enthusiast</p>
-            </div>
-
-            <div class="testimonial-card">
-                <p class="quote">"Noob-friendly and powerful. Early access is a must."</p>
-                <p class="author">– Retail Investor</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-column">
-            <h4>VolyFlow</h4>
-            <p>See the Flow. Master the Levels.</p>
-        </div>
-
-        <div class="footer-column">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-column">
-            <h4>Legal</h4>
-            <ul>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">Disclaimer</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-column">
-            <h4>Contact</h4>
-            <p>Follow us on <a href="https://x.com/VolyFlow" target="_blank">X</a></p>
-            <p>Email: <a href="mailto:hello@volyflow.com">hello@volyflow.com</a> (placeholder)</p>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <p>© 2026 VolyFlow. All rights reserved.</p>
-        <p class="disclaimer">
-            Not financial advice. For educational purposes only. Trading involves significant risk of loss. Past performance is not indicative of future results.
-        </p>
-    </div>
-</footer>
-        
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>VolyFlow</h4>
+                <p>See the Flow. Master the Levels.</p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>Follow us on <a href="https://x.com/VolyFlow" target="_blank">X</a></p>
+                <p>Email: <a href="mailto:hello@volyflow.com">hello@volyflow.com</a> (placeholder)</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 VolyFlow. All rights reserved.</p>
+            <p class="disclaimer">
+                Not financial advice. For educational purposes only. Trading involves significant risk of loss. 
+                Past performance is not indicative of future results. Use at your own risk.
+            </p>
+        </div>
+    </footer>
 
     <!-- JavaScript -->
     <script>
